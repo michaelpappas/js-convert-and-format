@@ -39,18 +39,18 @@ function convertAndFormat(input) {
 /** takes an array of number strings and adds commas every 3 numbers starting at the end of the array (lowest value) */
 function addCommas(wholeNum) {
   let numCommas = Math.floor(wholeNum.length / 3);
-  console.log("numCommas-", numCommas);
   let wholeNumArr = [];
-  for (let i = 0; i < wholeNum.length; i++) {
-    console.log("num-", wholeNum[i]);
-    wholeNumArr.push(wholeNum[i]);
-    if (i % 3 === 0 && numCommas > 0) { //returns funky comma placement.
-      console.log("i-", i);
+  let revArr = wholeNum.reverse();
+
+  for (let i = 0; i < revArr.length; i++) {
+    wholeNumArr.push(revArr[i]);
+
+    if ((i + 1) % 3 === 0 && numCommas > 0) { //returns funky comma placement.
       wholeNumArr.push(",");
       numCommas--;
     }
   }
-  return wholeNumArr.join("", ",");
+  return wholeNumArr.reverse().join("", ",");
 }
 
 
