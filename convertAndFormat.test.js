@@ -9,6 +9,10 @@ describe("#convertAndFormat", () => {
     expect(convertAndFormat("tacos")).toEqual("That is not a number.");
   });
 
+  test("converting an object returns invalid message", () => {
+    expect(convertAndFormat({})).toEqual("That is not a number.");
+  });
+
   test("converting 15", () => {
     expect(convertAndFormat(15)).toEqual("15");
   });
